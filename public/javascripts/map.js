@@ -1,7 +1,7 @@
 var photoChange;
 var gradeClassification;
-require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/widgets/Search"], function(Map, MapView,
-	GeoJSONLayer, Search) {
+require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/widgets/Search","esri/widgets/Expand"], function(Map, MapView,
+	GeoJSONLayer, Search, Expand) {
 	var map = new Map({
 		basemap: "topo",
 	});
@@ -172,6 +172,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 		url: "https://liguiye.github.io/MapofPoetry/public/data/allPoints.json",
 		copyright: "All Poem Points",
 		popupTemplate: allPointsTemplate,
+		outFields: ["*"]
 		//renderer: allPointsRenderer
 	});
 	map.add(allPoints);
@@ -194,5 +195,42 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 	view.ui.add(searchWidget, {
 		position: "top-right"
 	});
+	
+	
+	let dynastyLayerView;
+	const dynastyNodes = document.querySelectorAll(`.dynasty-item`);
+    const dynastyElement = document.getElementById("dynasty-filter");
+        dynastyElement.addEventListener("click", filterBydynasty);
 
+
+        function filterBydynasty(event) {
+          const selecteddynasty = event.target.getAttribute("data-dynasty");
+          dynastyLayerView.filter = {
+            where: "dynasty = '" + selecteddynasty + "'"
+          };
+        }
+
+        view.whenLayerView(allPoints).then(function(layerView) {
+          dynastyLayerView = layerView;
+          dynastyElement.style.visibility = "visible";
+          const dynastyExpand = new Expand({
+            view: view,
+            content: dynastyElement,
+            expandIconClass: "esri-icon-filter",
+            group: "top-left"
+          });
+          dynastyExpand.watch("expanded", function() {
+            if (!dynastyExpand.expanded) {
+              dynastyLayerView.filter = null;
+            }
+          });
+          view.ui.add(dynastyExpand, "top-left");
+          view.ui.add("titleDiv", "top-right");
+        });
+	
 });
+
+
+$("#xianQin").click(function(){
+		console.log("aaa");
+	});

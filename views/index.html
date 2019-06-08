@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/map.css" />
 	</head>
 	<body>
-		<!-- 导航 -->
+		<!-- /* 导航 */ -->
 		<header class="header">
 			<div class="container clearfix">
 				<div class="fl left">
@@ -24,19 +24,13 @@
 				</div>
 				<div class="fr nav">
 					<ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
-						<!--<li>
-							<a style="font-weight: bold;font-size: 30px;float: left;">诗途</a>
-						</li>
-						<li>
-							<a href="javascript:void(0)">行知资讯</a>
-						</li> -->
 						<li class="active">
 							<a href="javascript:void(0)">首页</a>
 						</li>
 						<li class="dropdown">
 							<a href="javascript:void(0)">历代风骚</a>
 							<div class="dropdown_menu">
-								<a href="#">先秦</a>
+								<a href="#" id="xianQin">先秦</a>
 								<a href="#">两汉</a>
 								<a href="#">魏晋</a>
 								<a href="#">南北朝</a>
@@ -139,8 +133,28 @@
 		<div id="mapDiv">
 		</div>
 
+
+		<div id="dynasty-filter" class="esri-widget">
+			<div class="dynasty-item visible-dynasty" data-dynasty="先秦">先秦</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="两汉">两汉</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="魏晋">魏晋</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="南北朝">南北朝</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="隋代">隋代</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="唐代">唐代</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="五代">五代</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="宋代">宋代</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="金朝">金朝</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="元代">元代</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="明代">明代</div>
+			<div class="dynasty-item visible-dynasty" data-dynasty="清代">清代</div>			
+		</div>
+
+		<div id="titleDiv" class="esri-widget">
+			<div id="titleText">Flash Floods by Season</div>
+			<div>Flash Flood Warnings (2002 - 2012)</div>
+		</div>
 	</body>
-	
+
 	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 	<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 	<script src="javascripts/swiper.min.js"></script>

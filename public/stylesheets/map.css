@@ -4,3 +4,42 @@
 	width: 100%;
 	position: absolute;
 }
+
+/* 标题框 */
+#titleDiv {
+	padding: 10px;
+}
+
+#titleText {
+	font-size: 15pt;
+	font-weight: 60;
+	font-family: Fangsong;
+	padding-bottom: 10px;
+}
+
+/* 朝代筛选框*/
+#dynasty-filter {
+	height: 360px;
+	width: 70px;
+	visibility: hidden;
+}
+
+.dynasty-item {
+	width: 100%;
+	padding: 9px;
+	text-align: center;
+	vertical-align: baseline;
+	cursor: pointer;
+	height: 30px;
+	font-family: Fangsong;
+}
+
+.dynasty-item:focus {
+	background-color: dimgrey;
+}
+
+.dynasty-item:hover {
+	background-color: dimgrey;
+}
+
+
