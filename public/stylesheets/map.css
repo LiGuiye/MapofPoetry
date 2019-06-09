@@ -8,13 +8,17 @@
 /* 标题框 */
 #titleDiv {
 	padding: 10px;
+	font-size: 10pt;
+	font-weight: 60;
+	font-family: Fangsong;
+	text-align: center;
 }
 
 #titleText {
 	font-size: 15pt;
 	font-weight: 60;
-	font-family: Fangsong;
 	padding-bottom: 10px;
+
 }
 
 /* 朝代筛选框*/
