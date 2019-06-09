@@ -22,7 +22,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 				}
 			}
 		});
-
+		
 		const allPointsTemplate = {
 			title: "诗词点信息",
 			content: "诗词名称： {poemname} <br/>朝代：{dynasty} <br/>作者：{poet} <br/>地址：{plocation} " +
@@ -194,7 +194,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 		view.ui.add(searchWidget, {
 			position: "top-right"
 		});
-
+		view.ui.add("titleDiv", "top-right");
 //左侧朝代筛选框
 		let dynastyLayerView;
 		const dynastyElement = document.getElementById("dynasty-filter");
@@ -258,8 +258,14 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 				}
 			});
 			view.ui.add(dynastyExpand, "top-left");
-			view.ui.add("titleDiv", "top-right");
+			
 		});
+//左侧年级搜索框
+
+
+
+
+
 
 	});
 

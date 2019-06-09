@@ -27,7 +27,6 @@
 	width: 70px;
 	visibility: hidden;
 }
-
 .dynasty-item {
 	width: 100%;
 	padding: 9px;
@@ -37,12 +36,30 @@
 	height: 30px;
 	font-family: Fangsong;
 }
-
 .dynasty-item:focus {
 	background-color: dimgrey;
 }
-
 .dynasty-item:hover {
+	background-color: dimgrey;
+}
+#grade-filter {
+	height: 360px;
+	width: 70px;
+	visibility: hidden;
+}
+.grade-item {
+	width: 100%;
+	padding: 9px;
+	text-align: center;
+	vertical-align: baseline;
+	cursor: pointer;
+	height: 30px;
+	font-family: Fangsong;
+}
+.grade-item:focus {
+	background-color: dimgrey;
+}
+.grade-item:hover {
 	background-color: dimgrey;
 }
 
