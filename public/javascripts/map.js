@@ -3,10 +3,10 @@ var gradeClassification;
 require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/widgets/Search", "esri/widgets/Expand"],
 	function(Map, MapView,
 		GeoJSONLayer, Search, Expand) {
+//定义地图基本要素
 		var map = new Map({
 			basemap: "topo",
 		});
-
 		var view = new MapView({
 			container: "mapDiv",
 			map: map,
@@ -22,7 +22,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 				}
 			}
 		});
-		
+//诗词点的弹出框
 		const allPointsTemplate = {
 			title: "诗词点信息",
 			content: "诗词名称： {poemname} <br/>朝代：{dynasty} <br/>作者：{poet} <br/>地址：{plocation} " +
@@ -46,7 +46,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 				arrow
 			);
 		};
-
+//按朝代渲染点，太丑了没用
 		const allPointsRenderer = {
 			type: "unique-value",
 			field: "dynasty",
@@ -168,7 +168,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 				}
 			}]
 		};
-
+//诗词点总图层
 		const allPoints = new GeoJSONLayer({
 			url: "https://liguiye.github.io/MapofPoetry/public/data/allPoints.json",
 			copyright: "All Poem Points",
@@ -195,17 +195,34 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 			position: "top-right"
 		});
 		view.ui.add("titleDiv", "top-right");
+// 疆域边界总图层
+		const dynastyOutline = new GeoJSONLayer({
+			url: "https://liguiye.github.io/MapofPoetry/public/data/dynastyOutline.json",
+			copyright: "Dynasty Outline",
+			outFields: ["*"]
+		});
+		map.add(dynastyOutline);
+//地图刷新时默认为近代边界
+		view.whenLayerView(dynastyOutline).then(function(layerView) {
+			layerView.filter = {
+				where: "dynasty = '近代'",
+			};
+		});
 //左侧朝代筛选框
 		let dynastyLayerView;
+		let dynastyOutlineLayerView;
 		const dynastyElement = document.getElementById("dynasty-filter");
 		dynastyElement.addEventListener("click", filterBydynasty);
+		// 获取页面选择的朝代并进行过滤
 		function filterBydynasty(event) {
 			const selecteddynasty = event.target.getAttribute("data-dynasty");
 			dynastyLayerView.filter = {
 				where: "dynasty = '" + selecteddynasty + "'"
 			};
+			dynastyOutlineLayerView.filter = dynastyLayerView.filter;
 			document.getElementById("titleText").innerText = selecteddynasty;
-			switch (selecteddynasty){
+			//选择朝代时更新标题
+			switch (selecteddynasty) {
 				case "先秦":
 					document.getElementById("dynastyTime").innerText = "旧石器时期——公元前221年";
 					break;
@@ -243,24 +260,71 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 					break;
 			}
 		}
-		view.whenLayerView(allPoints).then(function(layerView) {
-			dynastyLayerView = layerView;
+		//更改地图显示
+		view.whenLayerView(dynastyOutline).then(function(layerView) {
+			dynastyOutlineLayerView = layerView;
 			dynastyElement.style.visibility = "visible";
 			const dynastyExpand = new Expand({
 				view: view,
 				content: dynastyElement,
 				expandIconClass: "esri-icon-filter",
-				group: "top-left"
+				group: "top-left",
+				expandTooltip :"历代风骚",
 			});
+			//筛选框缩回去的时候显示所有点和近代边界
 			dynastyExpand.watch("expanded", function() {
 				if (!dynastyExpand.expanded) {
 					dynastyLayerView.filter = null;
+					dynastyOutlineLayerView.filter = {
+						where: "dynasty = '近代'",
+					};
+					document.getElementById("titleText").innerText ="各朝代诗词点部分汇总";
+					document.getElementById("dynastyTime").innerText = "先秦—清代(公元前221年—1912年)";
 				}
 			});
 			view.ui.add(dynastyExpand, "top-left");
-			
+		});
+		view.whenLayerView(allPoints).then(function(layerView) {
+			dynastyLayerView = layerView;
 		});
 //左侧年级搜索框
+		let gradeLayerView;
+		const gradeElement = document.getElementById("grade-filter");
+		gradeElement.addEventListener("click", filterBygrade);
+		// 获取页面选择的年级并进行过滤
+		function filterBygrade(event) {
+			const selectedgrade = event.target.getAttribute("data-grade");
+			gradeLayerView.filter = {
+				where: "grade = '" + selectedgrade + "'"
+			};
+			document.getElementById("titleText").innerText = selectedgrade;
+			document.getElementById("dynastyTime").innerText = "";
+		}
+		//更改地图显示
+		view.whenLayerView(allPoints).then(function(layerView) {
+			gradeLayerView = layerView;
+			gradeElement.style.visibility = "visible";
+			const gradeExpand = new Expand({
+				view: view,
+				content: gradeElement,
+				expandIconClass: "esri-icon-authorize",
+				group: "top-left",
+				expandTooltip :"校园诗词",
+			});
+			//筛选框缩回去的时候显示所有点和近代边界
+			gradeExpand.watch("expanded", function() {
+				if (!gradeExpand.expanded) {
+					dynastyLayerView.filter = null;
+					dynastyOutlineLayerView.filter = {
+						where: "dynasty = '近代'",
+					};
+					document.getElementById("titleText").innerText ="各朝代诗词点部分汇总";
+					document.getElementById("dynastyTime").innerText = "先秦—清代(公元前221年—1912年)";
+				}
+			});
+			view.ui.add(gradeExpand, "top-left");
+		});
+
 
 
 

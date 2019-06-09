@@ -7,7 +7,6 @@
 		<title>诗途重构</title>
 		<!-- header&nav -->
 		<link rel="stylesheet" href="stylesheets/reset.css" />
-		<!-- <link rel="stylesheet" href="stylesheets/swiper.min.css" /> -->
 		<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 		<link rel="stylesheet" href="stylesheets/head.css" />
 		<!-- map -->
@@ -25,49 +24,28 @@
 				<div class="fr nav">
 					<ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
 						<li class="active">
-							<a href="/" class="ajax">首页</a>
+							<a href="javascript:void(0)">首页</a>
 						</li>
+						
 						<li class="dropdown">
-							<a href="javascript:void(0)">历代风骚</a>
+							<a href="javascript:void(0)">十大景点</a>
+						</li>
+						
+						<li class="dropdown">
+							<a href="javascript:void(0)">诗人路线</a>
 							<div class="dropdown_menu">
-								<a href="#" id="xianQin">先秦</a>
-								<a href="#">两汉</a>
-								<a href="#">魏晋</a>
-								<a href="#">南北朝</a>
-								<a href="#">隋代</a>
-								<a href="#">唐代</a>
-								<a href="#">五代</a>
-								<a href="#">宋代</a>
-								<a href="#">金朝</a>
-								<a href="#">元代</a>
-								<a href="#">明代</a>
-								<a href="#">清代</a>
+								<a href="#">白居易</a>
+								<a href="#">杜甫</a>
+								<a href="#">李白</a>
+								<a href="#">李贺</a>
+								<a href="#">苏轼</a>
+								<a href="#">王维</a>
 							</div>
 						</li>
-						<li class="dropdown">
-							<a href="javascript:void(0)">
-								校园诗词
-							</a>
-							<div class="dropdown_menu">
-								<a href="#">初一</a>
-								<a href="#">初二</a>
-								<a href="#">初三</a>
-								<a href="#">高一</a>
-								<a href="#">高二</a>
-								<a href="#">高三</a>
-							</div>
+						
+						<li class="active">
+							<a href="javascript:void(0)">联系我们</a>
 						</li>
-						<li class="dropdown">
-							<a href="javascript:void(0)">按图索骥</a>
-							<div class="dropdown_menu">
-								<a href="#">十大景点</a>
-								<a href="#">诗人路线</a>
-								<a href="#">路线规划</a>
-								<a href="#">诗词数量对比</a>
-								<a href="#">疆域边界对比</a>
-							</div>
-						</li>
-
 					</ul>
 				</div>
 				<a href="javascript:void(0)" id="navToggle">
@@ -85,55 +63,31 @@
 			</div>
 			<ul class="ul" data-in="fadeInDown" data-out="fadeOutUp">
 				<li class="active">
-					<a href="/" class="ajax">首页</a>
+					<a href="javascript:void(0)">首页</a>
 				</li>
 				<li class="dropdown">
-					<a href="javascript:void(0)">历代风骚</a>
-					<div class="dropdown_menu">
-						<a href="#">先秦</a>
-						<a href="#">两汉</a>
-						<a href="#">魏晋</a>
-						<a href="#">南北朝</a>
-						<a href="#">隋代</a>
-						<a href="#">唐代</a>
-						<a href="#">五代</a>
-						<a href="#">宋代</a>
-						<a href="#">金朝</a>
-						<a href="#">元代</a>
-						<a href="#">明代</a>
-						<a href="#">清代</a>
-					</div>
+					<a href="javascript:void(0)">十大景点</a>
 				</li>
 				<li class="dropdown">
-					<a href="javascript:void(0)">
-						校园诗词
-					</a>
-					<div class="dropdown_menu">
-						<a href="#">初一</a>
-						<a href="#">初二</a>
-						<a href="#">初三</a>
-						<a href="#">高一</a>
-						<a href="#">高二</a>
-						<a href="#">高三</a>
-					</div>
+					<a href="javascript:void(0)">诗人路线</a>
+							<div class="dropdown_menu">
+								<a href="#">白居易</a>
+								<a href="#">杜甫</a>
+								<a href="#">李白</a>
+								<a href="#">李贺</a>
+								<a href="#">苏轼</a>
+								<a href="#">王维</a>
+							</div>
 				</li>
 				<li class="dropdown">
-					<a href="javascript:void(0)">按图索骥</a>
-					<div class="dropdown_menu">
-						<a href="#">十大景点</a>
-						<a href="#">诗人路线</a>
-						<a href="#">路线规划</a>
-						<a href="#">诗词数量对比</a>
-						<a href="#">疆域边界对比</a>
-					</div>
+					<a href="javascript:void(0)">联系我们</a>
 				</li>
 			</ul>
 		</div>
-
+		<!-- 地图框 -->
 		<div id="mapDiv">
 		</div>
-
-
+		<!-- 左侧筛选框 -->
 		<div id="dynasty-filter" class="esri-widget">
 			<div class="dynasty-item visible-dynasty" data-dynasty="先秦">先秦</div>
 			<div class="dynasty-item visible-dynasty" data-dynasty="两汉">两汉</div>
@@ -156,12 +110,11 @@
 			<div class="grade-item visible-grade" data-grade="高二">高二</div>
 			<div class="grade-item visible-grade" data-grade="高三">高三</div>
 		</div>
-		
-		
-
+		<!-- 标题 -->
 		<div id="titleDiv" class="esri-widget">
 			<div id="titleText">各朝代诗词点部分汇总</div>
 			<div id="dynastyTime">先秦—清代(公元前221年—1912年)</div>
+			<div id="note">【相关疆域边界请以国家有关规定为准，本网站仅做参考】</div>
 		</div>
 	</body>
 

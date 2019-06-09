@@ -13,12 +13,16 @@
 	font-family: Fangsong;
 	text-align: center;
 }
-
 #titleText {
 	font-size: 15pt;
 	font-weight: 60;
 	padding-bottom: 10px;
 
+}
+#note{
+	padding-top: 3px;
+	font-size: 8pt;
+	color:red;
 }
 
 /* 朝代筛选框*/
@@ -43,7 +47,7 @@
 	background-color: dimgrey;
 }
 #grade-filter {
-	height: 360px;
+	height: 180px;
 	width: 70px;
 	visibility: hidden;
 }
