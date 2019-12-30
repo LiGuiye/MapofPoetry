@@ -12,6 +12,7 @@
 		<!-- map -->
 		<link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/themes/light/main.css" />
 		<link rel="stylesheet" type="text/css" href="stylesheets/map.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/footer.css" />
 	</head>
 	<body>
 		<!-- /* 导航 */ -->
@@ -26,11 +27,11 @@
 						<li class="active">
 							<a href="javascript:void(0)">首页</a>
 						</li>
-						
+
 						<li class="dropdown">
 							<a href="javascript:void(0)">十大景点</a>
 						</li>
-						
+
 						<li class="dropdown">
 							<a href="javascript:void(0)">诗人路线</a>
 							<div class="dropdown_menu">
@@ -42,7 +43,7 @@
 								<a href="#">王维</a>
 							</div>
 						</li>
-						
+
 						<li class="active">
 							<a href="javascript:void(0)">联系我们</a>
 						</li>
@@ -70,14 +71,14 @@
 				</li>
 				<li class="dropdown">
 					<a href="javascript:void(0)">诗人路线</a>
-							<div class="dropdown_menu">
-								<a href="#">白居易</a>
-								<a href="#">杜甫</a>
-								<a href="#">李白</a>
-								<a href="#">李贺</a>
-								<a href="#">苏轼</a>
-								<a href="#">王维</a>
-							</div>
+					<div class="dropdown_menu">
+						<a href="#">白居易</a>
+						<a href="#">杜甫</a>
+						<a href="#">李白</a>
+						<a href="#">李贺</a>
+						<a href="#">苏轼</a>
+						<a href="#">王维</a>
+					</div>
 				</li>
 				<li class="dropdown">
 					<a href="javascript:void(0)">联系我们</a>
@@ -100,7 +101,7 @@
 			<div class="dynasty-item visible-dynasty" data-dynasty="金朝">金朝</div>
 			<div class="dynasty-item visible-dynasty" data-dynasty="元代">元代</div>
 			<div class="dynasty-item visible-dynasty" data-dynasty="明代">明代</div>
-			<div class="dynasty-item visible-dynasty" data-dynasty="清代">清代</div>			
+			<div class="dynasty-item visible-dynasty" data-dynasty="清代">清代</div>
 		</div>
 		<div id="grade-filter" class="esri-widget">
 			<div class="grade-item visible-grade" data-grade="初一">初一</div>
@@ -116,7 +117,20 @@
 			<div id="dynastyTime">先秦—清代(公元前221年—1912年)</div>
 			<div id="note">【相关疆域边界请以国家有关规定为准，本网站仅做参考】</div>
 		</div>
+
 	</body>
+
+	<footer class="footer">
+
+		<p>Copyright © 2019. Poemtrip <a href="http://www.beian.miit.gov.cn/" target="_blank">鄂ICP备19031536号-1</a>
+		</p>
+
+		<a href="javascript:void(0)" id="navToggle">
+			<span></span>
+		</a>
+		</div>
+	</footer>
+
 
 	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 	<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>

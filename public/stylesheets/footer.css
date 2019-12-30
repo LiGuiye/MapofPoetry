@@ -1,0 +1,19 @@
+
+/*====================底部备案*********/
+.footer{
+	width:100%;
+	position:fixed;
+	bottom:0;
+	left:0;
+	z-index:999;
+	height:25px;
+	background: black;
+	
+}
+.footer  a{
+	color: white;	
+}
+.footer  p{
+	color: white;
+  margin-left: 40%;
+}

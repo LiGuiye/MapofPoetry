@@ -3,6 +3,7 @@
 	height: 100%;
 	width: 100%;
 	position: absolute;
+	padding-bottom: 25px;
 }
 
 /* 标题框 */
@@ -17,7 +18,6 @@
 	font-size: 15pt;
 	font-weight: 60;
 	padding-bottom: 10px;
-
 }
 #note{
 	padding-top: 3px;

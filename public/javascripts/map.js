@@ -22,6 +22,7 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 				}
 			}
 		});
+		
 //诗词点的弹出框
 		const allPointsTemplate = {
 			title: "诗词点信息",
@@ -170,7 +171,8 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 		};
 //诗词点总图层
 		const allPoints = new GeoJSONLayer({
-			url: "https://liguiye.github.io/MapofPoetry/public/data/allPoints.json",
+			// url: "https://liguiye.github.io/MapofPoetry/public/data/allPoints.json",
+			url: "data/allPoints.json",
 			copyright: "All Poem Points",
 			popupTemplate: allPointsTemplate,
 			outFields: ["*"]
@@ -197,7 +199,8 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/GeoJSONLayer", "esri/wid
 		view.ui.add("titleDiv", "top-right");
 // 疆域边界总图层
 		const dynastyOutline = new GeoJSONLayer({
-			url: "https://liguiye.github.io/MapofPoetry/public/data/dynastyOutline.json",
+			// url: "https://liguiye.github.io/MapofPoetry/public/data/dynastyOutline.json",
+			url: "data/dynastyOutline.json",
 			copyright: "Dynasty Outline",
 			outFields: ["*"]
 		});
